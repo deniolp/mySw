@@ -2,7 +2,7 @@
 
 (function() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/mySw/ws.js')
+    navigator.serviceWorker.register('/ws.js')
       .then(function () {
         navigator.serviceWorker.ready
           .then(function (worker) {
