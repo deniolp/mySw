@@ -4,7 +4,8 @@ let CACHE_NAME = 'my-site-cache';
 let urlsToCache = [
   'style.css',
   'index.js',
-  'broken.png'
+  'broken.png',
+  'index.html'
 ];
 
 self.addEventListener('install', (event) => {
@@ -39,12 +40,6 @@ self.addEventListener('fetch', (event) => {
             }
             if (isImage(event.request)) {
               return caches.match('broken.png')
-                .then(function(response) {
-                  if (response) {
-                    return response;
-                  }
-                  return fetch('broken.png');
-                })
             }
           })
           .catch(() => {
