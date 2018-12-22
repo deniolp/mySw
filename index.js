@@ -3,11 +3,8 @@
 (function() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/mySw/sw.js')
-      .then(function () {
-        navigator.serviceWorker.ready
-          .then(function (worker) {
-            worker.sync.register('syncdata');
-          })
+      .then(function (registration) {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
       })
       .catch(function (error) {
         console.log(error);
