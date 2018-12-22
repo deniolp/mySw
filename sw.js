@@ -8,6 +8,21 @@ self.addEventListener('activate', (event) => {
   console.log('Активирован');
 });
 
+function isImage(fetchRequest) {
+    return fetchRequest.method === 'GET'
+           && fetchRequest.destination === 'image';
+}
+
 self.addEventListener('fetch', (event) => {
-  console.log('Происходит запрос на сервер');
+  event.respondWith(
+        fetch(event.request)
+            .then((response) => {
+                if (response.ok) return response;
+                if (isImage(event.request)) {
+                  return fetch('/media/broken.png');
+                }
+            })
+            .catch((error) => {
+              console.log(error);
+            }))
 });

@@ -8,5 +8,10 @@ background-color: plum;
 .img {
   width: 150px;
   height: 150px;
-  border: dotted 2px #fff;
+}
+
+.img img {
+  border: none;
+  width: 100%;
+  height: 100%;
 }
