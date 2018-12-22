@@ -1,0 +1,38 @@
+{
+  "name": "mysw",
+  "version": "1.0.0",
+  "description": "Learning Service Workers",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run editorconfig",
+    "editorconfig": "editorconfig-cli",
+    "start": "gulp serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deniolp/mySw.git"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "IE 11",
+    "Firefox ESR"
+  ],
+  "editorconfig-cli": [
+    "*.json",
+    "*.js",
+    "source/*.html",
+    "source/js/**/*.js",
+    "source/img/**/*.svg"
+  ],
+  "keywords": [
+    "serviceworkers"
+  ],
+  "author": "Denis Popov",
+  "license": "ISC",
+  "homepage": "https://github.com/deniolp/mySw#readme",
+  "devDependencies": {
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0"
+  }
+}
