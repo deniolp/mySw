@@ -33,7 +33,8 @@
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "^1.0.0",
     "browser-sync": "^2.26.3",
+    "deep-extend": "^0.5.1",
     "gulp": "^4.0.0",
-    "merge": ">=1.2.1"
+    "merge": "^1.2.1"
   }
 }
