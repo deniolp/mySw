@@ -8,13 +8,12 @@ let urlsToCache = [
 ];
 
 self.addEventListener('install', (event) => {
-  self.skipWaiting();
-    event.waitUntil(
-        caches.open('my-site-cache')
-        .then((cache) => {
-            return cache.addAll(urlsToCache);
-        })
-    );
+  event.waitUntil(
+      caches.open('my-site-cache')
+      .then((cache) => {
+          cache.addAll(urlsToCache);
+      })
+  );
 });
 
 self.addEventListener('activate', (event) => {
@@ -35,19 +34,18 @@ self.addEventListener('fetch', (event) => {
         }
         return fetch(event.request)
           .then(function(response) {
-            if (response.ok) return response;
+            if (response.ok) {
+              return response;
+            }
             if (isImage(event.request)) {
               return caches.match('broken.png');
             }
           })
-          .catch((error) => {
+          .catch(() => {
             if (isImage(event.request)) {
                 return caches.match('broken.png');
               }
           })
-      })
-      .catch((error) => {
-        cosole.log(error);
       })
     )
 });
