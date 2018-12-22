@@ -40,6 +40,12 @@ self.addEventListener('fetch', (event) => {
             }
             if (isImage(event.request)) {
               return caches.match('broken.png')
+                  .then(function(response) {
+                    if (response) {
+                      return response;
+                    }
+                    return fetch('broken.png');
+                  })
             }
           })
           .catch(() => {
