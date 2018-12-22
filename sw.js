@@ -19,7 +19,7 @@ self.addEventListener('fetch', (event) => {
             .then((response) => {
                 if (response.ok) return response;
                 if (isImage(event.request)) {
-                  return fetch('/media/broken.png');
+                  return fetch('broken.png');
                 }
             })
             .catch((error) => {
