@@ -1,0 +1,12 @@
+body {
+margin: 0;
+padding: 5px;
+box-sizing: border-box;
+background-color: plum;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  border: dotted 2px #fff;
+}
