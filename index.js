@@ -1,7 +1,7 @@
 'use stricts';
 
 (function() {
-  let path = '/mySw/sw.js';
+  let path = '/myServiceWorker/sw.js';
   if (location.host === 'localhost:3000') {
     path = '/sw.js';
   }
