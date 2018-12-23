@@ -2,7 +2,7 @@
 
 let CACHE_NAME = 'my-site-cache';
 let urlsToCache = [
-  'index.html',
+  '/myServiceWorker/',
   'style.css',
   'index.js',
   'broken.png'
