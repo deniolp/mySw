@@ -37,14 +37,15 @@ self.addEventListener('fetch', (event) => {
               return response;
             }
             if (isImage(event.request)) {
-              return fetch('broken.png')
+              return caches.match('broken.png')
                 .then((response) => {
+                  console.log('Took the image from the cache!')
                   return response;
                 })
             }
           })
           .catch(function() {
-            console.log('Error!');
+            console.log('Error! It is offline version.');
             if (isImage(event.request)) {
               return caches.match('broken.png');
             }
