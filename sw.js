@@ -2,6 +2,7 @@
 
 let CACHE_NAME = 'my-site-cache';
 let urlsToCache = [
+  '/',
   'style.css',
   'index.js',
   'broken.png'
@@ -38,17 +39,21 @@ self.addEventListener('fetch', (event) => {
             if (isImage(event.request)) {
               return caches.match('broken.png')
                 .then((response) => {
-                  console.log('Took the image from the cache!')
+                  console.log('Online, but I took image from the cache.')
                   return response;
                 })
             }
           })
           .catch(function() {
-            console.log('Error! It is offline version.');
-            if (isImage(event.request)) {
-              return caches.match('broken.png');
-            }
-            return cache.match(event.request);
+            return cache.match(event.request)
+              .then(function(response) {
+                if (isImage(event.request)) {
+                  console.log('Offline! Return image.');
+                  return caches.match('broken.png');
+                }
+                console.log('Offline! Return file.');
+                return response;
+              })
           })
       })
     )
