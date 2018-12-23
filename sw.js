@@ -1,8 +1,12 @@
 'use stricts';
 
+let path = '/myServiceWorker/';
+if (location.host === 'localhost:3000') {
+  path = '/';
+}
 let CACHE_NAME = 'my-site-cache';
 let urlsToCache = [
-  '/myServiceWorker/',
+  path,
   'style.css',
   'index.js',
   'broken.png'
