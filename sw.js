@@ -9,7 +9,8 @@ let urlsToCache = [
   path,
   'style.css',
   'index.js',
-  'broken.png'
+  'broken.png',
+  'info.png'
 ];
 
 self.addEventListener('install', (event) => {
